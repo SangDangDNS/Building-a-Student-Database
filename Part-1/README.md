@@ -192,21 +192,17 @@ Next, run it in your terminal with this command:
 ./insert_data.sh
 ```
 
-When completed, pls enter:  
+When completed, pls enter in the terminal to dump the database into a students.sql file. It will save all the commands needed to rebuild it. Take a quick look at the file when you are done. The file will be located where the command was entered.  
 
 ```
 pg_dump --clean --create --inserts --username=root -h localhost students > students.sql
-
 ```  
 
-in the terminal to dump the database into a students.sql file. It will save all the commands needed to rebuild it. Take a quick look at the file when you are done. The file will be located where the command was entered.  
-
-You can rebuild the database by entering:  
+You can rebuild the database by entering in a terminal where the .sql file is.  
 
 ```
 psql -h <hostname> -p <port> -U <username> -d <database> < students.sql
 ```  
-in a terminal where the .sql file is.
 
 Exp: `psql -h localhost -p 5432 -U root -d students < students.sql`
 
