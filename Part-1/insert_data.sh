@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# Set PGPASSFILE environment variable to point to the .pgpass file
+export PGPASSFILE=/home/sang/.pgpass
+
 # Script to insert data from courses.csv and students.csv into students database
 
-PSQL="psql -X --username=root --dbname=students --no-align --tuples-only -c"
+PSQL="psql -h localhost -p 5432 -U root -d students --no-align --tuples-only -c"
 echo $($PSQL "TRUNCATE students, majors, courses, majors_courses")
 
 cat courses.csv | while IFS="," read MAJOR COURSE
